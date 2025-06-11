@@ -1,0 +1,224 @@
+/* src/utils/PersonalPage.css */
+
+/* Define consistent colors */
+:root {
+    --primary-blue: #1976d2;
+    --primary-blue-hover: #1565c0;
+    --rising-candle: #4caf50; /* Updated to a more consistent green */
+    --falling-candle: #f44336; /* Updated to a more consistent red */
+    --user-buy: #4caf50;
+    --user-sell: #f44336;
+    --signal-buy: #2196f3; /* Consistent blue */
+    --signal-sell: #ff9800; /* Consistent orange */
+    --mistake: #9c27b0; /* Consistent purple */
+    --background-paper: #fafafa;
+    --border-blue: #1976d2;
+  }
+  
+  /* Container for the entire page */
+  .personal-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 8px 16px 16px 16px; */
+  }
+  
+  /* Inline UI adjustments for controls */
+  .controls-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  
+  /* Symbol selection dropdown */
+  .symbol-select {
+    min-width: 120px;
+  }
+  
+  /* File upload button container */
+  .file-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* File upload button */
+  .file-upload-button {
+    background-color: var(--primary-blue);
+  }
+  
+  .file-upload-button:hover {
+    background-color: var(--primary-blue-hover);
+  }
+  
+  /* Uploaded file name text */
+  .uploaded-file-text {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Legend container */
+  .legend-container {
+    margin-bottom: 32px;
+    padding: 24px;
+    background-color: var(--background-paper);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Legend title */
+  .legend-title {
+    margin-bottom: 12px;
+    font-weight: bold;
+  }
+  
+  /* Legend items container */
+  .legend-items {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  /* Individual legend item */
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Color boxes for candlestick */
+  .candle-color-box {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .candle-color-box.rising {
+    background-color: var(--rising-candle);
+  }
+  
+  .candle-color-box.falling {
+    background-color: var(--falling-candle);
+  }
+  
+  /* Symbols for buy/sell/mistake */
+  .legend-symbol {
+    font-size: 20px;
+  }
+  
+  .legend-symbol.user-buy {
+    color: var(--user-buy);
+  }
+  
+  .legend-symbol.user-sell {
+    color: var(--user-sell);
+  }
+  
+  .legend-symbol.signal-buy {
+    color: var(--signal-buy);
+  }
+  
+  .legend-symbol.signal-sell {
+    color: var(--signal-sell);
+  }
+  
+  .legend-symbol.mistake {
+    color: var(--mistake);
+  }
+  
+  /* Plot container */
+  .plot-container {
+    width: 100%;
+    height: 600px;
+  }
+  
+  /* Insights Panel */
+  .insights-panel {
+    margin-top: 32px auto 0 auto;
+    /* padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 1160px; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Accordion Summary */
+  .accordion-summary {
+    font-weight: bold;
+  }
+  
+  /* Accordion Details */
+  .accordion-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* Loading container */
+  .loading-container {
+    text-align: center;
+  }
+  
+  /* Insights list */
+  .insights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Insight item */
+  .insight-item {
+    line-height: 1.6;
+  }
+  
+  /* Additional analysis options */
+  .additional-options {
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  
+  /* Details container */
+  .details-container {
+    margin-top: 20px;
+    padding-left: 20px;
+    border-left: 2px solid var(--border-blue);
+  }
+  
+  /* Mistake patterns container */
+  .mistake-patterns {
+    margin-top: 12px;
+  }
+  
+  /* Mistake patterns chips container */
+  .mistake-patterns-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .personal-page-container {
+      padding: 16px;
+    }
+  
+    .controls-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  
+    .legend-items {
+      flex-direction: column;
+      gap: 12px;
+    }
+  
+    .plot-container {
+      height: 400px;
+    }
+  
+    .insights-panel {
+      padding: 16px;
+    }
+  }

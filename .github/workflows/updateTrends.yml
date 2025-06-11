@@ -1,0 +1,30 @@
+name: Update Google Trends Data
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'  # 매주 월요일 오전 3시 UTC (한국 시간 월요일 12시 정오)
+  workflow_dispatch:     # 수동 실행도 가능
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install pytrends pandas python-dotenv supabase
+
+      - name: Run Google Trends Update Script
+        run: python src/google-trends/updateTrendData.py
