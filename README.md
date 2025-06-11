@@ -1,85 +1,66 @@
-# Finsight 프로젝트
+# 📈 Finsight: 데이터 기반 개인 맞춤형 투자 분석 플랫폼
 
-### 개인화된 투자 분석 플랫폼<br/>
+"데이터 위에, 당신의 판단을 더하다." - Finsight는 감정적인 투자 판단을 넘어, 데이터 기반의 객관적인 인사이트를 제공하여 개인 투자자들의 성공적인 투자를 돕는 금융 분석 플랫폼입니다.
 
-"데이터 위에, 당신의 판단을 더하다."
-<br/>
-<br/>
+## ✨ 프로젝트 개요
 
-## Github Upload Procedure
-1. create (if not already created) a branch with appropriate branch name (eg. feat/crawling/naver)
-    ```bash
-    git checkout -b branch_name
-    ```
+[cite_start]급변하는 시장 상황과 복잡한 금융 데이터 속에서 개인 투자자들은 정보 비대칭과 비합리적 판단으로 어려움을 겪고 있습니다. [cite_start]Finsight는 이러한 문제점을 해결하고, 투자자의 매매 데이터를 분석하여 맞춤형 피드백을 제공하며 시장 데이터 기반의 차별화된 인사이트를 제공합니다.
 
-   - If the branch is already created, simply do
-       ```bash
-       git checkout branch_name
-       ```
+## 💡 주요 기능
 
-    - 수정된 파일들 리스트 보고싶을 때
-        ```bash
-        git status 
-        ```
+Finsight는 다음과 같은 핵심 기능들을 통해 사용자의 투자 경험을 향상시킵니다:
 
+* **시장 차트 분석 및 인사이트 제공:**
+    * [cite_start]BTC/USDT 등 주요 종목의 가격, 거래량, 구글 트렌드, M2 통화량 등 다양한 지표를 실시간으로 제공합니다.
+    * [cite_start]EMA, MACD, RSI 등 추가 기술 지표를 오버레이하여 복합적인 시장 분석을 가능하게 합니다.
+    * [cite_start]복잡한 지표를 기반으로 한 핵심 인사이트와 투자 방향성, 그리고 다음 액션을 요약하여 제공합니다.
+    * [cite_start]GPT-4o API를 활용하여 시장 전체 상황을 분석하고, 투자 전략을 요약한 자연어 피드백을 제공합니다.
+* **개인 맞춤형 거래 분석:**
+    * [cite_start]사용자가 CSV 파일로 자신의 과거 매매 데이터를 업로드하면, 이를 기반으로 개인화된 매매 패턴을 분석합니다.
+    * [cite_start]매수/매도 페어별 보유 시간, 손익, 수익률 등 상세한 거래 정보를 테이블 형태로 시각화합니다.
+    * [cite_start]LSTM 모델을 기반으로 한 BTC 가격 변동폭 예측 밴드를 제공하여 미래 시장 변동성을 예측할 수 있습니다.
+    * [cite_start]감정적/비계획적 거래, 손절매 미설정 등 사용자 실수를 분석하고 개선 조언을 제공합니다.
+* **투자 경고 및 알림:**
+    * [cite_start]RSI, EMA 등 지표 기반으로 초보 투자자에게 명확한 방향성을 제시하고, 비정상적인 시장 진입 시점을 감지하여 경고를 시각화합니다.
+    * [cite_start](향후) 실시간 모바일 알림(Push) 기능을 통해 중요한 시장 변화나 개인 매매 패턴 알림을 제공할 예정입니다.
 
-   - 수정된 파일 중 어떤 부분을 바꿨는지 보고싶을 때
-       ```bash
-       git diff 
-       ```
+## 🛠️ 기술 스택
 
-<br/>
+Finsight는 다음과 같은 기술 스택으로 개발되었습니다:
 
-2. add modified files that needs to be pushed (수정된 파일 전부)
-    ```bash
-    git add .
-    ```
-   - 특정 파일만 선택해서 올리고 싶을 경우 
-        ```bash
-        git add 파일명
-        ```
+* **프론트엔드:** React.js
+* [cite_start]**백엔드/API:** FastAPI (Python) 
+* [cite_start]**데이터베이스:** Supabase Cloud DB 
+* **인공지능/모델링:**
+    * [cite_start]LSTM (가격 변동폭 예측) 
+    * [cite_start]LGBM (성능 평가) 
+    * [cite_start]GPT-4o API (시장 분석 및 전략 요약) 
+* [cite_start]**데이터 소스:** Binance REST API, Binance WebSocket API, FRED API 
+* [cite_start]**기타:** Plotly (차트 시각화), pytz, pandas (데이터 전처리 및 시간대 처리) 
 
-<br/>
+## 🚀 개발 과정 및 아키텍처
 
-3. commit changes with appropriate commit message
-    ```bash
-    git commit -m '[#(issue_ID)] COMMIT_TYPE: COMMIT_SUMMARY ([related MR_ID])'
-    ```
+[cite_start]Finsight는 데이터 획득, 전처리, 모델링, 평가, 배포의 표준 개발 프로세스를 따랐습니다.
 
-<br/>
+* **시스템 구성:**
+    * [cite_start]**클라이언트 (Frontend):** React 기반 UI를 통해 사용자와 상호작용합니다.
+    * [cite_start]**서버 (Backend):** FastAPI를 통해 API 게이트웨이 역할을 하며, LSTM 예측, M2 데이터, GPT 분석, 거래 업로드 등의 기능을 담당합니다.
+    * [cite_start]**데이터 소스:** Binance, FRED, OpenAI 등 다양한 외부 API와 Supabase DB를 활용하여 데이터를 수집하고 처리합니다.
+    * [cite_start]WebSocket 서버를 통해 실시간 거래 데이터를 처리합니다.
 
-4. push the commit to local branch
-    ```bash
-    git push origin branch_name
-    ```
+* **주요 기술적 과제 및 해결:**
+    * [cite_start]**데이터 포맷 불일치 및 누락:** `merge_asof`와 컬럼/단위 통일, 수수료 자동 계산 등으로 데이터 정합성을 확보했습니다.
+    * [cite_start]**GPT 요청 지연/실패:** 요청 모듈 분리, 로딩/에러/응답 상태 관리, 타임아웃 설정으로 사용자 경험을 개선했습니다.
+    * [cite_start]**개인 손익 분석 시각화:** 보유 시간, 손익, 수익률 등을 정리된 테이블 형태로 제공하고 필터링/정렬 기능을 추가하여 사용자 이해도를 높였습니다.
 
-5. Go to github repository and click on 'Compare & Pull Request'
-6. compare and Merge. Delete the branch after merged
-7. Delete the branch in local repository
-    ```bash
-    git checkout main
-    git branch -D branch_name
-    ```
+## 👨‍👩‍👧‍👦 팀 소개
 
-<br>
+[cite_start]Finsight 프로젝트는 PM, 프론트엔드, AI 엔지니어, 데이터 엔지니어 등 다양한 역할의 팀원들이 애자일 방식으로 협업하여 개발되었습니다.
 
-## Github Ground Rules
-1. Create Issue for the current task that you are working on
-2. Notify teammates after pull requests
-3. **Never** push anything or work on main branch
+## 🌟 향후 발전 방향
 
+* [cite_start]**투자 분석의 범용성 및 실용성 확장:** 다종목/다타임프레임 지원.
+* [cite_start]**실시간 알림 강화:** 실시간 모바일 푸시 알림 기능 추가.
+* [cite_start]**고급 분석 기능:** 지갑 추적 기반 상장 포착 시스템, CCI 기반 맞춤형 기술 지표 개발, CVD 기반 고래 매매 타이밍 감지 AI 등.
 
-<br>
-
-## ETC
-1. react 실행
-   - MoneyDream 폴더로 이동 후 terminal에 명령어 실행
-        ```bash
-        npm start
-        ```
-
-2. database 실행
-   - MoneyDream/backend 폴더로 이동 후 새로운 terminal에 명령어 실행
-        ```bash
-        uvicorn main:app --reload
-        ```
+---
